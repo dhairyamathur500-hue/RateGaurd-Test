@@ -28,6 +28,7 @@ import {
 const PACKAGE_NAME = 'rateguard-dhairyamathur';
 const NPM_URL = 'https://www.npmjs.com/package/rateguard-dhairyamathur';
 const GITHUB_URL = 'https://github.com/dhairyamathur500-hue/Rategaurd_NPM_Package';
+const API_BASE_URL = 'https://rate-gaurd-test-kdde.vercel.app';
 
 export default function App() {
   // Copy state
@@ -56,7 +57,7 @@ export default function App() {
   // Fetch backend rate-limit config on load
   const fetchConfig = async () => {
     try {
-      const res = await fetch('/api/config');
+      const res = await fetch(`${API_BASE_URL}/api/config`);
       if (res.ok) {
         const data = await res.json();
         setConfigData(data.config);
@@ -102,7 +103,7 @@ export default function App() {
     const startTime = performance.now();
 
     try {
-      const res = await fetch('/api/test');
+      const res = await fetch(`${API_BASE_URL}/api/test`);
       const latency = Math.round(performance.now() - startTime);
 
       // Read actual headers set by RateGuard middleware
@@ -181,7 +182,7 @@ export default function App() {
   // Reset counters via backend RateGuard resetAll()
   const resetLiveCounters = async () => {
     try {
-      const res = await fetch('/api/reset', { method: 'POST' });
+      const res = await fetch(`${API_BASE_URL}/api/reset`, { method: 'POST' });
       if (res.ok) {
         setTotalRequests(0);
         setSuccessfulRequests(0);
