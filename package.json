@@ -1,0 +1,22 @@
+{
+  "name": "rateguard-test-workspace",
+  "version": "1.0.0",
+  "description": "Interactive showcase and live test website for rateguard-dhairyamathur npm package",
+  "scripts": {
+    "start": "node backend/server.js",
+    "build": "npm --prefix frontend run build",
+    "dev:backend": "node backend/server.js",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "keywords": [
+    "rateguard",
+    "rate-limit",
+    "express",
+    "middleware",
+    "react",
+    "nodejs"
+  ],
+  "author": "Dhairya Mathur",
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "rateguard-backend",
+  "version": "1.0.0",
+  "description": "Backend API demonstrating rateguard-dhairyamathur middleware",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "rateguard-dhairyamathur": "^1.0.0"
+  }
+}
