@@ -28,8 +28,8 @@ import {
 const PACKAGE_NAME = 'rateguard-dhairyamathur';
 const NPM_URL = 'https://www.npmjs.com/package/rateguard-dhairyamathur';
 const GITHUB_URL = 'https://github.com/dhairyamathur500-hue/Rategaurd_NPM_Package';
-const API_BASE_URL = 'https://rate-gaurd-test-kdde.vercel.app';
-
+// Use relative path for single integrated deployment, or configurable via env var
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 export default function App() {
   // Copy state
   const [copied, setCopied] = useState(false);
@@ -225,7 +225,7 @@ export default function App() {
               <span className={`w-2 h-2 rounded-full ${backendOnline ? 'bg-emerald-400 animate-pulse' : 'bg-rose-500'}`} />
               <span className="text-slate-400">API:</span>
               <span className={backendOnline ? 'text-emerald-400 font-semibold' : 'text-rose-400'}>
-                {backendOnline ? 'Online (5001)' : 'Connecting...'}
+                {backendOnline ? 'API Connected' : 'Connecting...'}
               </span>
             </div>
 
