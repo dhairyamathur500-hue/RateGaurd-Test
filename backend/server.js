@@ -148,8 +148,12 @@ if (fs.existsSync(frontendDist)) {
   });
 }
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`[RateGuard] Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-  console.log(`[RateGuard] API available at http://localhost:${PORT}/api/health`);
-});
+// Start Server if executed directly (Render, Railway, local `npm start`)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`[RateGuard] Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    console.log(`[RateGuard] API available at http://localhost:${PORT}/api/health`);
+  });
+}
+
+module.exports = app;
